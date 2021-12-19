@@ -1,0 +1,68 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+svg {
+    display: block;
+    font: 10.5em 'Montserrat';
+    width: 560px;
+    height: 125px;
+    margin: 0 auto;
+    margin-top: -55px;
+    margin-left: -110px;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+    stroke: #c48531;
+    animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+    stroke: #625880;
+    animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+    stroke: #c48531;
+    animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+    stroke: #625880;
+    animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+    stroke: #c48531;
+    animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+    100% {stroke-dashoffset: -35%;}
+}
+
+#kryesore
+{
+   overflow:scroll;
+}
+
+::-webkit-scrollbar{
+  background: #1B2A47;
+  width: 14px;
+}
+
+::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 10px #00000070;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(125deg,#1B2A47,#1B2A47);
+}

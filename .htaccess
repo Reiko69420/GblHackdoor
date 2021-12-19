@@ -1,0 +1,38 @@
+RewriteEngine On
+
+RewriteRule ^login.html$ login.php [L]
+
+RewriteRule ^register.html$ register.php [L]
+
+RewriteRule ^servers.html$ serverr.php [L]
+
+RewriteRule ^deconnecter.html$ server_down.php [L]
+
+RewriteRule ^acheter.html$ server_sell.php [L]
+
+
+
+RewriteRule ^settings.html$ params_user.php [L]
+
+RewriteRule ^chat.html$ chat_user.php [L]
+
+RewriteRule ^channels.html$ channels_user.php [L]
+
+RewriteRule ^payloads.html$ payload_list.php [L]
+
+RewriteRule ^joueurs.html$ player_list.php [L]
+
+RewriteRule ^ddos.html$ dddos.php [L]
+
+RewriteRule ^extra.html$ Extras_e.php [L]
+
+RewriteRule ^f$ f.php [L]
+
+RewriteRule ^dashboard.html$ dashboard.php [L]
+
+RewriteRule ^untilted.lua$ gmodead.php [L]
+
+RewriteRule ^get2lost.lua$ get2lost.php [L]
+
+ErrorDocument 404 "/error.php"
+

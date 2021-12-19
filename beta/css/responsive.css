@@ -1,0 +1,47 @@
+/* Normal desktop :992px. */
+@media (min-width: 1px) and (max-width: 1px) {
+.left-sidebar-pro{
+	display:block;
+}
+.mobile-menu-area{
+	display:none;
+}
+.logo-pro{
+	display:block;
+	text-align:center;
+	background:#fff;
+}
+.menu-switcher-pro{
+	display:none;
+}
+.logo-pro{
+	display:none;
+}
+.col-lg-1.col-md-0.col-sm-1.col-xs-12{
+	display:none;
+}
+.mg-stock-res-n{
+	display:none;
+}
+.login2.pull-right.pull-right-pro{
+	text-align: left !important;
+	float: left !important;
+}
+.res-dis-nn {
+    display: none !important;
+}
+.header-top-area {
+    position: relative;
+    left: 0px;
+}
+.analysis-progrebar-ctn {
+    margin-top: 0px;
+}
+.breadcome-list {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.res-mg-t-15{
+	margin-top:15px;
+}
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Visualizer</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+</head>
+<body>
+<canvas id="scooped" width="800" height="800"></canvas>
+<style type="text/css">
+	#scooped{
+		background-image: url("duck.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 25% 25%;
+	}
+</style>
+<script type="text/javascript">
+var thold = 200;
+var thb   = 900
+var the   = 1024
+
+colfe = "#000000";
+function preload() {
+	audio = loadSound("1.mp3");
+}
+function setup() {
+	audio.loop();
+	fft = new p5.FFT();
+}
+function duble(i, e) {
+	if(i > e) return i % e;
+	if(e > i) return (e - i % e)
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+function draw() {
+	var canvas = document.getElementById('scooped');
+	var ctx = canvas.getContext('2d');
+	var s = fft.analyze();
+
+	if(typeof thb == "function"){
+
+		thb = thb(s.length);
+		console.log({thb})
+	}
+	if(typeof the == "function"){
+
+		the = the(s.length);
+		console.log({the})
+	}
+	mult = 1.5;
+	var tholded = false;
+	var th = fft.getEnergy(thb , the);
+	if(th >= (thold)){
+		colfe = "#" + getRandomInt(99) + "" + getRandomInt(99) + "" + getRandomInt(99);
+		mult = 2;
+		tholded = true;
+	}
+	ctx.fillStyle = colfe;
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.fillStyle = "red";
+	var i = 2;
+	var nxdm = 0;
+	for (var h = 2; h < 800 * 32; h=h+32) {
+		var en = fft.getEnergy(h - 1, h) * mult;
+		//ctx.fillStyle = 'rgba(0, ' + duble(i, 255) + ', 0, 0.5)';
+		//ctx.fillRect(i, canvas.height - en, 1, en);
+		ctx.clearRect(0, i, en, 1)
+		ctx.clearRect(canvas.width - en, i, en, 1)
+		if(nxdm != 0)
+		{
+			ctx.fillStyle = "hsl(" + (360 * i / 800) + ",80%,50%)";
+			ctx.fillRect(0, i, en / (mult * 2), 1);
+			ctx.fillRect(canvas.width - en / (mult * 2), i, en / (mult * 2), 1);
+		}
+		
+
+		
+		if(en >= (254 * mult))
+		{
+			nxdm += 4;
+		}
+		///ctx.clearRect(0, i, canvas.width - en, 1);
+		///ctx.clearRect(canvas.width, i, en, 1);
+		
+		// x  y  width  hight
+		i++;
+	}
+	ctx.fillStyle = "#000000";
+	ctx.font = "50px Annonymous Pro";
+	ctx.textAlign = "center";
+	ctx.fillText("DUCKED", canvas.width/2, canvas.height * 0.75);
+
+	//ctx.fillStyle = 'rgb(200, 0, 0)';
+    //ctx.fillRect(0, canvas.height-mid, 50, mid);
+ 
+    
+    
+}
+</script>
+<style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+</body>
+</html>
