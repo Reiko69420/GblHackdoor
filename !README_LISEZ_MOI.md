@@ -80,6 +80,7 @@ Créer une DataBase du nom que vous souhaitez et retenez le nom pour l'installat
 
 
 Pour tout autres demande ou aide merci de contacter : Alex.#7331 & Reiko#6969 sur discord.
+Aucune aide ne serra fournit si vous n'avez pas d'argent, même pas la peine de nous contacter
 
 
 :::::::::  :::::::::::  ::::::::   ::::::::  :::    :::  ::::::::  
