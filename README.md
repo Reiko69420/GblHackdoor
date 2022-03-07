@@ -7,7 +7,7 @@ If you want to check the code and fix it you can !
 
 # You can install easily the panel with the index.php, it will auto install the SQL and create a user !
 
-# 🚫  I'm not to be held responsible for any result arising from a DDoS attack launched using my panel or destroy a gmod server ! 🚫
+# 🚫  I'm not to be held responsible for any result arising from a DDoS attack launched using my panel or any server hacking ! 🚫
 
 # Credit:
 - Reiko (Me !)
