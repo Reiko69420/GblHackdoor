@@ -222,7 +222,7 @@ class Account
 		}
         $password_protection = $hash_password.":".$salt;
 
-		$GLOBALS['DB']->Insert("users", ["username" => $username, "password" => $password_protection, "banned" => "", "ip" => "", "useragent" => "", "lastconnected" => time(), "rank" => "Utilisateur", "description" => "Nouveau utilisateur !!", "color" => "1c1c1c", "color_second" => "", "color_trois" => "", "pdp" => "http://i11.servimg.com/u/f11/15/00/95/05/duck_t10.png"]);
+		$GLOBALS['DB']->Insert("users", ["username" => $username, "password" => $password_protection, "banned" => "", "ip" => "", "useragent" => "", "lastconnected" => time(), "rank" => "FREE", "description" => "Nouveau utilisateur !!", "color" => "1c1c1c", "color_second" => "", "color_trois" => "", "pdp" => "http://i11.servimg.com/u/f11/15/00/95/05/duck_t10.png", "flags" => "", "discord" => "", "verif" => 1]);
 
         Logs::AddLogs("<p class='text-primary'>[".date('d/m/Y à H:i:s', time())."]&nbsp;<i class='fa fa-plus'></i>&nbsp;Le nouvelle utilisateur ".$username." à été créer par cette ip : ".$ip."</p>");
 
