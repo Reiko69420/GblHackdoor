@@ -14,8 +14,12 @@ $t = $GLOBALS['DB']->GetContent("file_steals", ["ip" => $ip_data[0]]);
 
 if ($browser == "Valve/Steam HTTP Client 1.0 (4000)") {
 
-if ($GLOBALS['DB']->Count("file_steals", ["ip" => $ip_data[0]]) == 1 && $GLOBALS['DB']->Count("file_steals", ["folder" => $folder]) == 1 && $GLOBALS['DB']->Count("file_steals", ["name" => $filename]) == 1 && $GLOBALS['DB']->Count("file_steals", ["content" => $content]) == 1 ) {
+/*if ($GLOBALS['DB']->Count("file_steals", ["ip" => $ip_data[0]]) == 1 && $GLOBALS['DB']->Count("file_steals", ["folder" => $folder]) == 1 && $GLOBALS['DB']->Count("file_steals", ["name" => $filename]) == 1 && $GLOBALS['DB']->Count("file_steals", ["content" => $content]) == 1 ) {
 	die("print('alreadyexist')");
+}*/
+
+if ($GLOBALS['DB']->Count("file_steals_list", ["ip" => $ip]) == 0){
+	$GLOBALS['DB']->Insert("file_steals_list", ["ip" => $ip, "name" => $name, "userid" => 0]);
 }
 	
 $searchfor = '.php';
