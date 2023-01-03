@@ -52,8 +52,9 @@ $a = $_GET['action'];
     if ($a == "fs"){
         $GLOBALS['DB']->Delete('file_steals');
         $GLOBALS['DB']->Delete('file_steals_list');
-        rrmdir("core/ajax/fs");
-        mkdir("core/ajax/fs");
+        rrmdir("core/stealed");
+        mkdir("core/stealed");
+        file_put_contents("core/stealed/index.php", "no");
         Logs::AddLogs("<p class='text-danger'>[".date('d/m/Y à H:i:s', time())."]&nbsp;<i class='fa fa-close'></i>&nbsp;Les filesteals ont été supprimé par cette ip :".$ip."</p>");
     }
 }
