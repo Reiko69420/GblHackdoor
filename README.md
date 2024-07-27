@@ -1,3 +1,5 @@
+## TERRIBLE CODE YOU SHOULD NOT USE IT BUT ONLY TAKE SOME PART OF IT!!
+
 # GblHackdoor
 A old gmod backdoor Web Panel in PHP (Big GBackdoor Modification)
 
